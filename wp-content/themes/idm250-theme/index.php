@@ -4,5 +4,5 @@
     echo get_the_title();
     ?>
     </h1> 
-    <!-- <h1> Hello yuh -->
+    <!-- <h1> Hello asdsayuh -->
     <?php get_footer(); ?>
