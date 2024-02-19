@@ -12,7 +12,9 @@
     --XLtext:64px;
     --Ltext:48px;
     --Mtext:36px;
+    --SMtext: 28px;
     --Stext: 24px;
+    --XStext: 18px;
 }
 /* BODY */
 body, html {
@@ -26,6 +28,9 @@ body {
 
 main {
     min-height: 100vh;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 main h1:first-of-type {
@@ -59,10 +64,26 @@ main h1:first-of-type {
 @font-face {
     font-family: 'Avenir' ;
     src: url("../fonts/Avenir-Med.ttf");
+    src: url("https://fonts.googleapis.com/css?family=Avenir");
 }
 
-h1, h2, h3, h4, p, li {
+h1, h2, h3, h4, h5, h6, p, li, cite, figcaption {
     margin: 0;
+    color: var(--mainWhite);
+    font-family: 'Avenir' ;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+strong {
+    font-weight: 700;
+    color: var(--mainHighlight);
+}
+figcaption strong {
+    color: white;
 }
 
 h1 {
@@ -71,8 +92,12 @@ h1 {
     font-size: var(--XLtext);
     font-weight: 600;
     color: var(--mainWhite);
+    text-shadow: 7px 7px 12px var(--mainDark);
 }
-
+h1.wp-block-heading { 
+    font-variant:normal;
+    text-shadow: none;
+}
 h2 {
     font-family: 'lightQanelas';
     font-size: var(--Ltext);
@@ -90,7 +115,20 @@ h3 {
     font-size: var(--Mtext);
 }
 h4 {
+    font-family: 'lightQanelas';
+    font-size: var(--SMtext);
+
+}
+
+h5 {
+    font-family: 'lightQanelas';
+    font-size: var(--Stext);
+}
+
+h6 {
     font-family: 'Avenir';
+    font-size: var(--Stext);
+    font-weight: 600;
 }
 
 a {
@@ -98,8 +136,51 @@ a {
     text-decoration: none;
 }
 
-p {
+p, li {
+    font-size: 18px;
+    line-height: 150%;
    font-family: 'Avenir';
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+ul {
+    list-style-type:disc;
+}
+li::marker {
+    color: var(--secHighlight);
+}
+
+main a {
+    color: var(--secHighlight);
+    text-decoration: underline;
+}
+
+/* BLOCK QUOTE */
+.wp-block-quote {
+    display: block;
+    width: fit-content;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-top-color: var(--secHighlight);
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: var(--secHighlight);
+    padding: 28px 0;
+    margin: 2rem auto;
+}
+
+.wp-block-quote p::before{ 
+    content: open-quote;
+}
+.wp-block-quote p::after{ 
+    content: close-quote;
+}
+
+.wp-block-quote cite::before {
+    content: '- ';
 }
 /* HEADER STYLES */
 
@@ -166,6 +247,34 @@ img {
     /* text-align: center; */
     display: block;
     margin: auto;
+}
+
+/* OTHER IMAGE */
+figure {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+figcaption {
+    text-align: center;
+    font-size: var(--XStext);
+}
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+    font-size: var(--XStext);
+}
+
+.wp-block-image, .wp-block-gallery {
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.wp-block-image  {
+    flex-direction: column;
+}
+.wp-block-gallery {
+    gap: 1rem;
 }
 
 
@@ -340,6 +449,15 @@ footer img {
       .mobileMenu > div > ul {
         flex-direction: column;
         gap: 20px;
+    }
+    .wp-block-gallery {
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) { 
+        width: auto;
     }
 
 

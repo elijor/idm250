@@ -22,4 +22,28 @@ register_nav_menus([
 };
 
 add_action('init', 'register_theme_menus');
+
+add_theme_support('post-thumbnails');
+ 
+add_post_type_support('page', 'excerpt');
+ 
+// add_post_type_support( 'gallery', 'date');
+
+function my_custom_post_gallery() {
+$post_type_name = 'gallery';
+$post_type_options = [
+  'labels' => [
+    'name' => __('Galleries'),
+    'singular_name' => __('Gallery')
+  ],
+  'public' => true,
+  'has_archive' => true,
+  'post-thumbnails' => true,
+  'show_in_rest' => true,
+  'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments', 'summary' )
+];
+register_post_type($post_type_name, $post_type_options);
+};
+add_action('init', 'my_custom_post_gallery');
+
 ?>

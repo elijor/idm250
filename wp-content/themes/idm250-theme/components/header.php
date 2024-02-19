@@ -26,4 +26,9 @@
         ?>
         </nav>
     </header>
+    <div class="heroImgCon"> 
+    <?php if (has_post_thumbnail()){
+    echo get_the_post_thumbnail();}; ?>
+    <h1> <?php echo get_the_title(); ?> </h1>
+</div>
     <main>
