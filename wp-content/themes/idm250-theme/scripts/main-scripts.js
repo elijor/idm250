@@ -13,3 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     menuElement.classList.toggle('menuActive');
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var queryBlock = document.querySelector('.wp-block-query');
+  if (queryBlock) {
+      console.log('itworks?');
+  }
+});

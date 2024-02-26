@@ -1,5 +1,7 @@
 <?php
+// define( 'WP_DEBUG', true ); 
 
+// LINKING TO STYLES
 function theme_scripts_and_styles() {
   wp_enqueue_script('main-scripts', get_template_directory_uri() . '/scripts/main-scripts.js', [], false, ['in_footer => true']);
 
@@ -45,5 +47,19 @@ $post_type_options = [
 register_post_type($post_type_name, $post_type_options);
 };
 add_action('init', 'my_custom_post_gallery');
+
+function add_widgets() {
+register_sidebar([
+
+  'name' => 'Main Sidebar',
+  'id' => 'main_sidebar'
+]);
+
+// register_widget('Custom_Hours_Widget');
+
+};
+add_action('init', 'add_widgets');
+
+
 
 ?>
