@@ -470,6 +470,31 @@ figcaption.in-image {
     align-self: start;
 }
 
+.contactstack {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactstack img { 
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.contactstack p {
+    margin: 0;
+}
+
+.contactstack > * {
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 5px;
+}
+
 /* FOOTER STYLES */
 
 footer {
@@ -647,7 +672,7 @@ footer img {
         transition: 0.4s;
       }
 
-      .wp-block-media-text.is-stacked-on-mobile, .recent-post-list {
+      .wp-block-media-text.is-stacked-on-mobile, .recent-post-list, .contactstack {
         flex-direction: column;
       }
 
