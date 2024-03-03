@@ -1,0 +1,14 @@
+{
+    "name": "acf/my-block",
+    "title": "My Block",
+    "description": "Just another awesome block.",
+    "style": [ "file:./block.css" ],
+    "category": "common",
+    "icon": "book-alt",
+    "keywords": ["block", "custom"],
+    "acf": {
+      "mode": "preview",
+      "renderTemplate": "block.php"
+    },
+    "align": "full"
+  }

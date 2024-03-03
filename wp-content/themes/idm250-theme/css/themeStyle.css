@@ -68,7 +68,7 @@ main h1:first-of-type {
 @font-face {
     font-family: 'Avenir' ;
     src: url("../fonts/Avenir-Med.ttf");
-    src: url("https://fonts.googleapis.com/css?family=Avenir");
+    /* src: url("https://fonts.googleapis.com/css?family=Avenir"); */
 }
 
 h1, h2, h3, h4, h5, h6, p, li, cite, figcaption {
@@ -102,6 +102,10 @@ h1.wp-block-heading {
     font-variant:normal;
     text-shadow: none;
 }
+h1.c404p {
+    text-align: center;
+}
+
 h2 {
     font-family: 'lightQanelas';
     font-size: var(--Ltext);
@@ -277,17 +281,17 @@ figure {
 
 figcaption {
     text-align: center;
-    font-size: var(--XStext);
+    font-size: var(--Stext);
 }
 .wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
-    font-size: var(--XStext);
+    font-size: var(--Stext);
 }
 
 .wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
     background: none;
     box-sizing: border-box;
     color: #fff;
-    font-size: var(--XStext);
+    font-size: var(--Stext);
     max-height: 60%;
     overflow: auto;
     padding: 0 8px 8px;
@@ -383,6 +387,89 @@ li.widget::marker {
     visibility: hidden;
     color: #00000000;
 }
+
+/* GALLERY DISPLAY */
+.recent-post-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.recent-post-list > div {
+    flex-basis: 100%;
+    /* width: min-content; */
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+.recent-post-list .wp-gallery-img {
+    aspect-ratio: 1 / 1;
+    height: 100%
+}
+
+.recent-post-list img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    object-position: center;
+  }
+
+figcaption.in-image {
+    position: absolute;
+    text-align: left;
+    bottom: 0;
+    background: rgb(2,0,36);
+    width: 100%;
+    background: linear-gradient(0deg, rgba(2,0,36,0.8) 0%, rgba(2,0,36,0) 100%);
+    padding: 18px 0 18px 12px;
+}
+
+.recent-post-block .wp-block-button {
+    margin: 25px auto;
+    text-align: center;
+    display: block;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.contact > * {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    /* flex-basis: 100%; */
+}
+
+.contact .wp-block-image img { 
+    width: 40px;
+    height: 40px;
+
+}
+
+.wp-block-media-text.is-stacked-on-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    /* align-content: start; */
+
+}
+
+.wp-block-media-text.is-stacked-on-mobile h2, .wp-block-media-text.is-stacked-on-mobile h3 {
+    margin-top: 0;
+}
+
+.wp-block-media-text.is-stacked-on-mobile > * {
+    flex-basis: 100%;
+    align-self: start;
+}
+
 /* FOOTER STYLES */
 
 footer {
@@ -403,7 +490,14 @@ footer > div {
     display: flex;
     flex-direction: row;
     gap: 50px;
+    justify-content: space-between;
+    align-items: center;
 }
+footer a {
+    flex-basis: 100%;
+    width: fit-content;
+}
+
 footer img {
     max-width: 50px;
 }
@@ -551,6 +645,15 @@ footer img {
         background-color: var(--mainWhite);
         margin: 5px 0;
         transition: 0.4s;
+      }
+
+      .wp-block-media-text.is-stacked-on-mobile, .recent-post-list {
+        flex-direction: column;
+      }
+
+      .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+        width: 100%;
+        padding: 18px 0 0;
       }
       
       .change .bar1 {

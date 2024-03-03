@@ -26,9 +26,23 @@
         ?>
         </nav>
     </header>
-    <div class="heroImgCon"> 
-    <?php if (has_post_thumbnail()){
-    echo get_the_post_thumbnail();}; ?>
-    <h1> <?php echo get_the_title(); ?> </h1>
+    <?php 
+    // $title1 = get_the_title();
+    if (is_archive()) {
+        $title1 = post_type_archive_title('', false);
+    } else {
+        $title1 =  get_the_title();
+    }
+    
+    if (has_post_thumbnail()) { ?>
+        <div class="heroImgCon">
+            <?php echo get_the_post_thumbnail(); ?>
+            <h1><?php echo $title1; ?></h1>
+        </div>
+    <?php } else { ?>
+        <h1><?php echo $title1; ?></h1>
+    <?php } ?>
+    
+
 </div>
     <main>

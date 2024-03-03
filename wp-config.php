@@ -79,14 +79,20 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', true );
+
+
 
 define('WP_HOME', 'http://localhost:8888');
 define('WP_SITEURL', 'http://localhost:8888');
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+// @ini_set( 'log_errors', 'Off' );
+// @ini_set( 'display_errors', 'On' );
+// define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true );   // 5.2 and later
+// define( 'WP_DEBUG', true );
+// define( 'WP_DEBUG_LOG', false );
+// define( 'WP_DEBUG_DISPLAY', true );
 
 /* That's all, stop editing! Happy publishing. */
 

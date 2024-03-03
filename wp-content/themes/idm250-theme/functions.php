@@ -38,6 +38,7 @@ $post_type_options = [
     'name' => __('Galleries'),
     'singular_name' => __('Gallery')
   ],
+  'taxonomies' => array('category', 'post_tag'),
   'public' => true,
   'has_archive' => true,
   'post-thumbnails' => true,
@@ -60,6 +61,53 @@ register_sidebar([
 };
 add_action('init', 'add_widgets');
 
+add_action( 'init', 'register_acf_blocks' );
+function register_acf_blocks() {
+    register_block_type( __DIR__ . '/blocks/my-block' );
+};
 
+
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+
+  global $wp_version;
+  if ( $wp_version !== '4.7.1' ) {
+     return $data;
+  }
+
+  $filetype = wp_check_filetype( $filename, $mimes );
+
+  return [
+      'ext'             => $filetype['ext'],
+      'type'            => $filetype['type'],
+      'proper_filename' => $data['proper_filename']
+  ];
+
+}, 10, 4 );
+
+function cc_mime_types( $mimes ){
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
+
+function fix_svg() {
+  echo '<style type="text/css">
+        .attachment-266x266, .thumbnail img {
+             width: 100% !important;
+             height: auto !important;
+        }
+        </style>';
+}
+add_action( 'admin_head', 'fix_svg' );
+// if( function_exists('acf_register_block_type') ) {
+//   add_action( 'init', 'blo_register_acf_blocks' );
+//   function blo_register_acf_blocks() {
+//     register_block_type( __DIR__ . '/blocks/my-block' );
+//   }
+// };
+// add_action( 'init', 'register_acf_blocks' );
+// function register_acf_blocks() {
+//     register_block_type( __DIR__ . '/blocks/my-block/' );
+// };
 
 ?>
