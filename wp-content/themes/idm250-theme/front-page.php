@@ -36,9 +36,16 @@ if ($galleries->have_posts()) :
 
 
 
-    if (is_active_sidebar("main_sidebar")) { 
-        dynamic_sidebar("main_sidebar");
-    };
+    // if (is_active_sidebar("main_sidebar")) { 
+    //     dynamic_sidebar("main_sidebar");
+    // };
 ?>
+<?php
+// <table class="mabel-bhi-businesshours">
 
+
+// <tbody><tr><td>Monday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Tuesday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Wednesday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Thursday</td><td>Closed</td></tr><tr><td>Friday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Saturday</td><td>10:00 AM — 5:00 PM</td></tr><tr class="mbhi-is-current"><td>Sunday</td><td>10:00 AM — 5:00 PM</td></tr></tbody></table>
+
+
+?>
 <?php get_footer(); ?>
