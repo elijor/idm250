@@ -1,12 +1,14 @@
 <?php get_header(); ?>
 <?php
 echo get_the_content();
-$galleries = new WP_Query(array(
-    "post_type" => "gallery",
-    "post_per_page" => "3",
-    "orderby"=> "date"
-));
 
+$args = array(
+    "post_type" => "gallery",
+    "post_per_page" => "1",
+    "orderby"=> "date"
+);
+
+$galleries = new WP_Query($args);
 
 if ($galleries->have_posts()) : 
     echo '<div class="recent-post-block">';
@@ -22,7 +24,9 @@ if ($galleries->have_posts()) :
             echo '</a>';
             echo '</div>';
     // echo '</div>';
+    // wp_reset_postdata();
     endwhile;
+  
         echo '</div>';
         $gotoBlog = esc_url( home_url( '/gallery' ) );
     wp_reset_postdata();
@@ -36,16 +40,6 @@ if ($galleries->have_posts()) :
 
 
 
-    // if (is_active_sidebar("main_sidebar")) { 
-    //     dynamic_sidebar("main_sidebar");
-    // };
-?>
-<?php
-// <table class="mabel-bhi-businesshours">
-
-
-// <tbody><tr><td>Monday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Tuesday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Wednesday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Thursday</td><td>Closed</td></tr><tr><td>Friday</td><td>10:00 AM — 7:00 PM</td></tr><tr><td>Saturday</td><td>10:00 AM — 5:00 PM</td></tr><tr class="mbhi-is-current"><td>Sunday</td><td>10:00 AM — 5:00 PM</td></tr></tbody></table>
-
-
-?>
-<?php get_footer(); ?>
+ get_footer(); 
+ 
+ ?>

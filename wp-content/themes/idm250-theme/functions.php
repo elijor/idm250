@@ -109,5 +109,37 @@ add_action( 'admin_head', 'fix_svg' );
 // function register_acf_blocks() {
 //     register_block_type( __DIR__ . '/blocks/my-block/' );
 // };
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
+function load_more_posts() {
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'Gallery',
+        'post_status' => 'publish',
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            // Display your post content here
+            // the_title('<h2>', '</h2>');
+            // while ($loop->have_posts()) : $loop->the_post();
+            echo '<div>';
+            echo '<a href="'. get_post_permalink() .'">';
+                echo '<div class="wp-gallery-img">';
+                echo get_the_post_thumbnail();
+                echo '</div>';
+                echo '<figcaption class="in-image">' .  get_the_title() . '</figcaption>';
+                echo '</a>';
+            echo '</div>';
+        endwhile;
+    endif;
+
+    // wp_die();
+};
+
+
 
 ?>

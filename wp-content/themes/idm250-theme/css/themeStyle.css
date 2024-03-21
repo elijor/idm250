@@ -166,13 +166,21 @@ main a {
     text-decoration: underline;
 }
 
-.wp-block-buttons a {
+.wp-block-buttons a, .wp-block-button button {
     background-color: var(--mainHighlight);
+    color: white;
     font-family: 'Avenir';
     border-radius: 0;
     font-weight: bolder;
     font-size: var(--Stext);
     padding: 12px 18px;
+    border: none;
+}
+
+.wp-block-button:has( > button) {
+    text-align: center;
+    /* margin: 0 auto; */
+    margin-top: 25px;
 }
 
 /* BLOCK QUOTE */
@@ -240,6 +248,21 @@ nav > div > ul li {
     font-size: var(--Stext);
     list-style-type: none;
 }
+
+/* TEMPLATE DIV */
+body:has(.half-page-div) .heroImgCon {
+    width: 100%;
+    max-height: 200px;
+}
+
+body:has(.half-page-div) .heroImgCon h1 {
+    /* left: 150%; */
+    /* bottom: 0; */
+    top: 100%;
+    background-color: #00000080;
+    padding: 10px;
+}
+
 
 /* HERO IMAGE */
 
@@ -393,12 +416,15 @@ li.widget::marker {
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: 20px;
+    /* gap: 20px; */
+    row-gap: 20px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .recent-post-list > div {
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
+    width: 32%;
     /* width: min-content; */
     position: relative;
     aspect-ratio: 1 / 1;
@@ -785,6 +811,15 @@ footer .mapcon figcaption {
     }
     .wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) { 
         width: auto;
+    }
+
+    body:has(.half-page-div) .heroImgCon {
+        width: 100%;
+        max-height: unset;
+    }
+    
+    body:has(.half-page-div) .heroImgCon h1 {
+        left: 50%;
     }
 
 
