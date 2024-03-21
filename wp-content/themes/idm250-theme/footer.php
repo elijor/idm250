@@ -95,15 +95,15 @@
     <p> <?php echo get_field('email-address', 'option') ?> </p>
     </div>
     <div class="socmed">
-    <a href="<?php echo get_field('social-media-link-fb', 'option') ?>">
+    <a target="_blank" href="<?php echo get_field('link_to_social_media-fb', 'option') ?>">
     <img src="<?php echo get_field('social-media-icon-fb', 'option') ?>"/>
     </a>
 
-    <a href="<?php echo get_field('social-media-link-ig', 'option') ?>">
+    <a target="_blank" href="<?php echo get_field('link_to_social_media-ig', 'option') ?>">
     <img src="<?php echo get_field('social-media-icon-ig', 'option') ?>"/>
     </a>
 
-    <a href="<?php echo get_field('social-media-link-tt', 'option') ?>">
+    <a target="_blank" href="<?php echo get_field('link_to_social_media-tt', 'option') ?>">
     <img src="<?php echo get_field('social-media-icon-tt', 'option') ?>"/>
     </a>
     </div>
